@@ -1,0 +1,232 @@
+﻿@{
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<div class="modal fade" id="view" tabindex="-1" role="dialog" aria-labelledby="view" aria-hidden="true">
+    <div class="modal-dialog" style="width:80%">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title custom_align" id="Heading" style="margin-right: 40px;">
+                    محضر رقم
+                    (<label id="case_id">{{ui.cases[ui.currentIndex].case_id}}</label>)
+                </h4>
+            </div>
+            <div class="container" dir="rtl" >
+               @* <div class="row">*@
+
+                    <div class="panel-body form-horizontal payment-form" style="width:85%">
+                        <div class="row">
+                          <div class="col-md-3 form-group simpleinput">
+                                <label>اسم المشترك:</label>
+                                <label class="form-control modalformcontrol" id="case_customer_name"> {{ui.cases[ui.currentIndex].case_customer_name}} </label>
+                            </div>
+                            @*<div class="col-md-3 form-group simpleinput">
+                                <label>المستخدم المخالف:</label>
+                                <label class="form-control modalformcontrol" id="case_billing_user2"> {{ui.cases[ui.currentIndex].case_billing_user2}} </label>
+                            </div>*@
+
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>رقم المشترك:</label>
+                                <label class="form-control modalformcontrol" id="case_customer_number"> {{ui.cases[ui.currentIndex].case_customer_number}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>رقم الهوية:</label>
+                                <label class="form-control modalformcontrol" id="case_ID_number"> {{ui.cases[ui.currentIndex].case_ID_number}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>الجنسية:</label>
+                                <label class="form-control modalformcontrol"  id="case_nationality_id"> {{ui.cases[ui.currentIndex].nationality_name}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>المنطقة:</label>
+                                <label class="form-control modalformcontrol" id="case_region"> {{ui.cases[ui.currentIndex].region}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>المدينة:</label>
+                                <label class="form-control modalformcontrol" id="case_city"> {{ui.cases[ui.currentIndex].case_city}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>تاريخ التأسيس:</label>
+                                <label class="form-control modalformcontrol" id="case_Activate_date"> {{ui.cases[ui.currentIndex].case_Activate_date}} </label>
+                            </div>
+                            @*<div class="col-md-3 form-group simpleinput">
+                                <label>نوع الخدمة:</label>
+                                <label class="form-control modalformcontrol" id="case_connection_domain"> {{ui.cases[ui.currentIndex].connectionDomain}} </label>
+                            </div>*@
+ 
+                            @*<div class="col-md-3 form-group simpleinput">
+                                <label>حالة الإختلاس:</label>
+                                <label class="form-control modalformcontrol" id="case_fraudStatus_id"> {{ui.cases[ui.currentIndex].fraudStatus_name}} </label>
+                            </div>*@
+ 
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>دورة الفوتورة:</label>
+                                <label class="form-control modalformcontrol" id="case_bill_cycle"> {{ui.cases[ui.currentIndex].case_bill_cycle}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>تاريخ الفوترة:</label>
+                                <label class="form-control modalformcontrol" id="case_bill_date"> {{ui.cases[ui.currentIndex].case_bill_date}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>الفوترة هجري:</label>
+                                <label class="form-control modalformcontrol" id="case_bill_hdate"> {{ui.cases[ui.currentIndex].case_bill_hdate}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>النظام المصدر:</label>
+                                <label class="form-control modalformcontrol" id="case_source"> {{ui.cases[ui.currentIndex].case_source}} </label>
+                            </div>
+
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>التاريخ الميلادي:</label>
+                                <label class="form-control modalformcontrol" id="case_date"> {{ui.cases[ui.currentIndex].case_date}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>التاريخ الهجري:</label>
+                                <label class="form-control modalformcontrol" id="case_hijri"> {{ui.cases[ui.currentIndex].case_hijri}} </label>
+                            </div>
+
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>الحالة:</label>
+                                <label class="form-control modalformcontrol" id="case_status"> {{ui.cases[ui.currentIndex].caseStatus_name}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>عدد الأرقام المفصولة:</label>
+                                <label class="form-control modalformcontrol" id="case_disconnected_numbers_count"> {{ui.cases[ui.currentIndex].case_disconnected_numbers_count}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>الحد الإئتماني:</label>
+                                <label class="form-control modalformcontrol" id="case_credit_limit"> {{ui.cases[ui.currentIndex].case_credit_limit}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>الفقد المتوقع:</label>
+                                <label class="form-control modalformcontrol" id="case_estimated_loss"> {{ui.cases[ui.currentIndex].case_estimated_loss}} </label>
+                            </div>
+                            <div class="col-md-3 form-group simpleinput">
+                                <label>المبلغ المفقود:</label>
+                                <label class="form-control modalformcontrol" id="case_actual_loss"> {{ui.cases[ui.currentIndex].case_actual_loss}} </label>
+                            </div>
+                        </div>
+                        <!--Row End-->
+
+                        
+
+
+                        <!-- Caselines Panel -->
+                        <div class="panel panel-default" ng-repeat="record in ui.case_lines[ui.currentIndex]">
+                    <div class="panel-body form-horizontal payment-form">
+                        <h4><span class="label label-default">{{$index + 1}}</span></h4>
+                        <div class="row">
+
+                            <div class="col-md-3" style="float:right">
+                                <label>رقم الخدمة</label>
+                                <div class="form-control modalformcontrol">{{record.service_no}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>رقم الحساب</label>
+                                <div class="form-control modalformcontrol" >{{record.account_no}}</div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label>المبلغ</label>
+                                <div class="form-control modalformcontrol" >{{record.amount}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>خدمة الجوال</label>
+                                <div class="form-control modalformcontrol" >{{ui.connection_domains[record.case_line_connection_domain].name}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>مدخل البيانات</label>
+                                <div class="form-control modalformcontrol" >{{record.gsm_name}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>نوع الإختلاس</label>
+                                <div class="form-control modalformcontrol">{{record.fraudType_name}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>المستخدم المخالف</label>
+                                <div class="form-control modalformcontrol">{{record.case_line_billing_user}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>التاريخ الميلادي</label>
+                                <div class="form-control modalformcontrol">{{fixJsonDate(record.case_line_date)}}</div>
+                            </div>
+
+                            <div class="col-md-3" style="float:right">
+                                <label>التاريخ الهجري</label>
+                                <div class="form-control modalformcontrol">{{record.case_line_hijri}}</div>
+                            </div>
+                          
+                        </div>
+                        
+
+                            <div class="col-md-6 form-group"  style="float: right" >
+                                <label>ملاحظة:</label>
+                                <div class="form-control modalformcontrol" style="height:70px;width:90% !important"> {{record.case_line_note_intractive}} </div>
+                            </div>
+                            <div class="col-md-6 form-group" style="float: right">
+                                <label>وصف القضية:</label>
+                                <div class="form-control modalformcontrol" style="height:70px;width:90% !important"> {{record.case_line_descreption}} </div>
+                            </div>
+                        </div>
+
+                   
+                </div>
+                    <!-- end of caselines panel -->
+
+                        <!--Table Row Start-->
+
+                        <!--<div class="row">
+                            <div class="col-md-13 form-group">
+                                <table class="table" style="width: 97%; margin-right: 50px !important;">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>رقم الخدمة</th>
+                                            <th>رقم الحساب</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;المبلغ</th> 
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خدمة الجوال</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع الإختلاس</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مدخل البيانات</th>
+                                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع الخدمة</th>
+                                            @*<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;يوزر المقفل</th>*@
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="record in ui.case_lines[ui.currentIndex]">
+                                            <td><label>{{$index + 1}}</label></td>
+                                            <td><label class="form-control gridformcontrol" style="width:120px !important">{{record.service_no}}</label></td>
+                                            <td><label class="form-control gridformcontrol">{{record.account_no}}</label></td>
+                                            <td><label class="form-control gridformcontrol">{{record.amount}}</label></td>
+                                            <td><label class="form-control gridformcontrol">{{record.gsm_name}}</label></td>
+                                            <td><label class="form-control gridformcontrol" style="width:200px !important">{{record.fraudType_name}}</label></td>
+                                            <td><label class="form-control gridformcontrol">{{record.user_name}}</label></td>
+                                            <td><label class="form-control gridformcontrol">{{record.connection_domain}}</label></td>
+                                            @*<td><label class="form-control gridformcontrol">{{record.case_billing_user}}</label></td>*@
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+            -->
+                        <!--Row End-->
+
+                    </div>
+
+                @*</div>*@
+                <!--<div class="modal-footer ">
+                    <button type="button" class="btn btn-danger btn-lg" style="width: 50%;"><span class="glyphicon glyphicon-ok-sign"></span>حذف</button>
+                </div>-->
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>

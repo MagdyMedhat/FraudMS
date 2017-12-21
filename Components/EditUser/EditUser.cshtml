@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/EditUser/EditUserController.js"></script> 
+ 
+<style>
+    .container {
+        margin-top: 30px;
+    }
+
+    .filter-col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .pull-right {
+        float: right !important;
+    }
+
+    .form-horizontal .form-group {
+        margin-left: 88px;
+    }
+
+    .radio {
+        direction: rtl;
+    }
+    .form-horizontal .has-feedback .form-control-feedback {
+        right: 460px !important;
+    }
+</style>
+
+<!--------------------------------------User panel---------------------------------------------------->
+<div class="container" data-ng-controller=" EditUserController" style="display:none;" id="container">
+    <h3></h3>
+    <div class="row">
+        <h3 dir="rtl">بيانات المستخدم:</h3>
+        <div id="filter-panel" class="filter-panel">
+            <div class="panel panel-default">
+                <div class="panel-body ">
+                    <form name="form" id="form" class="form-horizontal">
+                        <fieldset> 
+                            <legend style="display:none"></legend>
+                            <div class="form-group" style="margin-top:50px;">
+                                <div class="col-md-10 ">
+                                    <input  dir="rtl" ng-model="ui.current_user.user_name" name="name" type="text" class="form-control input-md" required>
+                                </div>
+                                <label class="col-md-1 control-label" for="textinput" dir="rtl">الاسم</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <input   dir="rtl" ng-model="ui.current_user.user_login" name="username" type="text" class="form-control input-md" required>
+                                </div>
+                                <label class="col-md-1 control-label" for="username">اسم المستخدم</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <input   name="password" type="password" dir="rtl" class="form-control input-md" ng-model="ui.current_user.user_password" name="password" required />
+                                </div>
+                                <label class="col-md-1 control-label"  for="textinput">كلمة المرور</label>
+                            </div>
+                            <div class="form-group" dir: rtl;>
+                                <div class="col-md-10" style="direction: rtl" >
+                                    <div ng-repeat="a in ui.access">
+                                      <div class="checkbox" >  
+                                          <input type="checkbox" value="{{a.key}}" name="access" ng-checked="ui.user_access[$index]"  ng-model="ui.user_access[$index]">
+                                          <label style="margin-right:25px;">{{a.value}}</label>
+                                           </div>
+                                    </div>
+                                </div>
+                                <label class="col-md-1 control-label" for="selectmultiple">الصلاحيات</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-10">
+                                    <div class="radio">
+                                        <input type="radio" name="availability" id="radios-0" ng-model="ui.active" value="{{ui.active}}" >
+                                     <label for="radios-0" class="radio-label" style="margin-right:25px;">
+                                            مفعل
+                                        </label>
+                                         </div>
+                                    <div class="radio">
+                                        <input type="radio" name="availability" id="radios-1" ng-model="ui.inactive" value="{{ui.inactive}}" >
+                                     <label for="radios-1" class="radio-label" style="margin-right:25px;">
+                                            مغلق
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="col-md-1 control-label" for="radios">حالة الحساب</label>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <button type="button" ng-click="deleteUser();"  class="btn btn-danger pull-left" style="margin-right:7px;" ng-show="ui.deletebtn">
+                                        <span class="glyphicon glyphicon-remove" style=" margin-left: 6px; margin-right: -3px; float: right;"></span>حذف
+                                    </button>
+                                    <button type="submit" ng-click="form.$valid&&submitUser();" class="btn btn-primary pull-left" style="margin-right:-5px;">
+                                        <span class="glyphicon glyphicon-ok-sign" style=" margin-left: 6px; margin-right: -3px; float: right;"></span>حفظ
+                                    </button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

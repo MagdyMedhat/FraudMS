@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Login/LoginController.js"></script>
+
+<style>
+
+    .form-signin {
+        max-width: 330px;
+        
+    }
+</style>
+
+<!--------------------------------------User panel---------------------------------------------------->
+<div class="container" data-ng-controller="LoginController"> 
+    <div class="col-md-4"></div>
+    <div class="col-md-4" >
+        <form class="form-signin" style="direction:rtl;" name="login_form">
+            <h2 class="form-signin-heading">برجاء تسجيل الدخول</h2>
+            </br>
+            <label for="inputUsername" class="sr-only">اسم المستخدم</label>
+            <input type="text" id="inputUsername" class="form-control" placeholder="اسم المستخدم" required ng-model="username" autofocus="">
+            </br>
+            <label for="inputPassword" class="sr-only">كلمة المرور</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="كلمة المرور" required ng-model="password" >
+            </br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login_form.$valid && authenticate()">تسجيل</button>
+        </form>
+
+    </div>
+    <div class="col-md-4"></div>
+  
+</div>
+
+
+
+
+

@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Users/UsersModel.js"> </script>
+<script src="~/Components/Users/UsersController.js"> </script>
+
+
+<style>
+    .container {
+        margin-top: 30px;
+    }
+
+    .filter-col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .pull-right {
+        float: right !important;
+    }
+</style>
+
+<!--------------------------------------Users panel---------------------------------------------------->
+<div class="container" dir="rtl" data-ng-controller="UsersController" style="display: none;" id="container">
+    <div class="row">
+        <button class="btn btn-primary btn-primary" ng-click="Add()" style="margin-bottom: 8px;">
+            <span class="glyphicon glyphicon-plus"></span>  اضافة مستخدم
+        </button>
+        <div id="filter-panel" class="filter-panel">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="usersTable" class="table table-bordred table-striped">
+                            <thead style="align-items: center">
+                                <th style="text-align: right;">الاسم</th>
+                                <th style="text-align: right;">اسم الدخول</th>
+                                <th style="text-align: right;">حالة الحساب</th>
+                                <th style="text-align: right;">تاريخ الانشاء</th>
+                                <th style="text-align: right;">تاريخ آخر دخول</th>
+                                <th></th> 
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="u in TableRecords">
+                                    <td>{{u.user_name}}</td>
+                                    <td>{{u.user_login}}</td>
+                                    <td>{{u.user_active}}</td>
+                                    <td>{{u.user_create_date}}</td>
+                                    <td>{{u.user_last_login}}</td>
+                                    <td>
+                                        <p data-placement="top">
+                                            <button class="btn btn-primary btn-xs" ng-click="Edit($index)">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </button>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="clearfix"></div>
+                        <ul class="pagination pull-right" style="float: left !important;" id="pagination">
+                            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+                            <li ng-class="{ 'active': $index == selectedIndex }" ng-repeat="pageNumber in range">
+                                <a ng-href="#pagination" ng-click="Paginate(pageNumber)">{{pageNumber}}</a>
+                            </li>
+
+                            <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+
+<style>
+    .form-signin {
+        max-width: 330px;
+    }
+</style>
+
+<!--------------------------------------Error panel---------------------------------------------------->
+<div class="container">
+    <div class="container" dir="rtl" id="container">
+        <h3>خطأ</h3>
+        <div class="row">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" role="form">
+                             <div class="form-group" id="sandbox-container">
+                            <label class="filter-col" style="margin-right: 0;text-align:center;font-weight:900;" for="pref-search">عفوا لا توجد لديك صلاحيات كافية لتصفح هذا القسم برجاء الاتصال بمدير الموقع</label>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

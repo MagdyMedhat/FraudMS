@@ -1,0 +1,195 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Stats/StatsController.js"></script>
+
+<style>
+    .container {
+        margin-top: 30px;
+    }
+
+    .filter-col {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .pull-right {
+        float: right !important;
+    }
+</style>
+
+<!--------------------------------------Stats panel---------------------------------------------------->
+<div class="container" dir="rtl" data-ng-controller="StatsController" style="display: none;" id="container">
+    <h3>احصائيات</h3>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form class="form-inline" id="form" role="form">
+                            <div class="form-group" id="sandbox-container">
+                                <label class="filter-col" style="margin-right: 0;" for="pref-search">التاريخ:</label>
+                                <input type="text" class="form-control input-sm" data-provide="datepicker" id="case_date" @*ng-model="ui.search_form.case_date"*@>
+                            </div>
+                            <div class="form-group" id="sandbox-container">
+                                <label class="filter-col" style="margin-right: 0;" for="pref-search">الي:</label>
+                                <input type="text" class="form-control input-sm" data-provide="datepicker" id="case_date2" @*ng-model="ui.search_form.case_date2"*@>
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right: 0;" for="pref-search">نوع الخدمة:</label>
+                                <select id="pref-perpage" class="form-control" ng-model="ui.search_form.case_connection_domain">
+                                    <option ng-repeat="item in ui.connection_domains" value="{{item.ID}}">{{item.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="filter-col" style="margin-right: 0;" for="pref-orderby">مدخل البيانات:</label>
+                                <select id="pref-orderby" class="form-control" ng-model="ui.search_form.case_user_id">
+                                    <option ng-repeat="item in ui.users" value="{{item.user_id}}">{{item.user_name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="margin-right: 14px;">
+                                <button type="submit" class="btn btn-primary filter-col" ng-click="Search();">
+                                    <span class="glyphicon glyphicon-search" style="margin-left:5px"></span>بحث  
+                                </button>
+                                <button type="reset" class="btn btn-danger filter-col" ng-click="Delete();">
+                                    <span class="glyphicon glyphicon-refresh" style="margin-left:5px"></span>تفريغ    
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>ملخص النتائج</h3>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="pie_chart1" style="width: 500px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="column_chart1" style="width: 500px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="margin-bottom: -20px">
+                        <table id="summary" class="table table-bordred" style="margin-bottom: -20px">
+                            <tr ng-repeat="item in ui.fraud_type_stats">
+                                <th>
+                                    <pre> <span style="float:right;direction:ltr">{{item.count}} : {{item.fraud_type}} </span></pre>
+                                </th>
+                            </tr>
+                        </table>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="column_chart2" style="height: 550px !important;width: 500px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+            <div class="col-md-6">
+                <div id="filter-panel" class="filter-panel">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="pie_chart2" style="width: 500px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="margin-bottom: -20px">
+                        <table id="summary" class="table table-bordred" style="margin-bottom: -20px">
+                            <tr ng-repeat="item in ui.fraud_status_stats">
+                                <th>
+                                    <pre> <span style="float:right;direction:ltr"> {{item.count}} : {{item.fraud_status}} </span></pre>
+                                </th>
+                            </tr>
+                        </table>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <div id="filter-panel" class="filter-panel">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="margin-bottom: -20px">
+                        <table id="summary" class="table table-bordred" style="margin-bottom: -20px">
+                            <tr>
+                                <th>
+                                    <pre><span  style="float:right">مجموع القضايا الكلي : {{ui.cases_count}} </span></pre>
+                                </th>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    <pre><span  style="float:right">عدد القضايا المفتوحة: {{ui.opened_cases}} </span></pre>
+                                </th>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    <pre><span  style="float:right">عدد القضايا المغلقة: {{ui.closed_cases}} </span></pre>
+                                </th>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    <pre><span  style="float:right">عدد الارقام المفصولة : {{ui.disconnected_numbers}}</span></pre>
+                                </th>
+                            </tr>
+                            <tr>
+
+                                <th>
+                                    <pre><span  style="float:right">مجموع المبالغ المفقودة : {{ui.actual_loss}} </span></pre>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <pre><span  style="float:right">مجموع الفقد المتوقع : {{ui.estimated_loss}}</span></pre>
+                                </th>
+                            </tr>
+                        </table>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     

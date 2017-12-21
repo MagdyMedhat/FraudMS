@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RAFMS" Class="RAFMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=localhost\sqlexpress;Initial Catalog=RAFMS;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="RAFMSConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Access" Member="Accesses">
+    <Type Name="Access">
+      <Column Name="access_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="access_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Access_UsersAccess" Member="UsersAccesses" ThisKey="access_id" OtherKey="access_id" Type="UsersAccess" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Case]" Member="Cases">
+    <Type Name="Case">
+      <Column Name="case_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="case_customer_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_ID_number" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_customer_number" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="case_bill_cycle" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_bill_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="case_credit_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="case_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="case_hijri" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="case_status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_source" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_nationality_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_fraudStatus_id" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_region" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="case_city" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_estimated_loss" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="case_actual_loss" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="case_bill_hdate" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_billing_user2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_disconnected_numbers_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bulk_insertion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="case_Activate_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.case_line" Member="case_lines">
+    <Type Name="case_line">
+      <Column Name="service_no" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="account_no" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="case_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="case_gsm_id" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_fraudType_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_user_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_line_billing_user" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="case_line_id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="case_line_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="case_line_hijri" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_line_activate_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="case_line_connection_domain" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_line_descreption" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="case_line_note_intractive" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CaseStatus" Member="CaseStatus">
+    <Type Name="CaseStatus">
+      <Column Name="caseStatus_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="caseStatus_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities" Member="Cities">
+    <Type Name="City">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConnectionDomains" Member="ConnectionDomains">
+    <Type Name="ConnectionDomain">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FraudStatus" Member="FraudStatus">
+    <Type Name="FraudStatus">
+      <Column Name="fraudStatus_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fraudStatus_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="fraudStatus_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FraudTypes" Member="FraudTypes">
+    <Type Name="FraudType">
+      <Column Name="fraudType_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fraudType_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="fraudType_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="fraudType_desc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GSM_types" Member="GSM_types">
+    <Type Name="GSM_type">
+      <Column Name="gsm_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="gsm_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="gsm_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nationality" Member="Nationalities">
+    <Type Name="Nationality">
+      <Column Name="nationality_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nationality_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="nationality_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Regions" Member="Regions">
+    <Type Name="Region">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="user_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="user_login" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="user_password" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="user_email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="user_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="user_create_date" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="user_last_login" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="user_last_login_state" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="user_level" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="user_nikira_user_id" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="User_UsersAccess" Member="UsersAccesses" ThisKey="user_id" OtherKey="user_id" Type="UsersAccess" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UsersAccess" Member="UsersAccesses">
+    <Type Name="UsersAccess">
+      <Column Name="user_id" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="access_id" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Access_UsersAccess" Member="Access" ThisKey="access_id" OtherKey="access_id" Type="Access" IsForeignKey="true" />
+      <Association Name="User_UsersAccess" Member="User" ThisKey="user_id" OtherKey="user_id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users_vw" Member="Users_vws">
+    <Type Name="Users_vw">
+      <Column Name="user_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Case_vw" Member="Case_vws">
+    <Type Name="Case_vw">
+      <Column Name="case_id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="case_customer_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_ID_number" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_customer_number" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="case_bill_cycle" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_bill_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="case_credit_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="case_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="case_hijri" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="case_status" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_source" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_nationality_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_fraudStatus_id" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_region" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="case_estimated_loss" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="case_actual_loss" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="case_bill_hdate" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_billing_user2" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_disconnected_numbers_count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bulk_insertion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="case_Activate_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="region" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="caseStatus_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="nationality_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="fraudStatus_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="case_city" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CaseStatus_vw" Member="CaseStatus_vws">
+    <Type Name="CaseStatus_vw">
+      <Column Name="caseStatus_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="caseStatus_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cities_vw" Member="Cities_vws">
+    <Type Name="Cities_vw">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConnectionDomains_vw" Member="ConnectionDomains_vws">
+    <Type Name="ConnectionDomains_vw">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FraudStatus_vw" Member="FraudStatus_vws">
+    <Type Name="FraudStatus_vw">
+      <Column Name="fraudStatus_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fraudStatus_name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FraudTypes_vw" Member="FraudTypes_vws">
+    <Type Name="FraudTypes_vw">
+      <Column Name="fraudType_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="fraudType_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GSM_vw" Member="GSM_vws">
+    <Type Name="GSM_vw">
+      <Column Name="gsm_id" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="gsm_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Nationality_vw" Member="Nationality_vws">
+    <Type Name="Nationality_vw">
+      <Column Name="nationality_id" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nationality_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Regions_vw" Member="Regions_vws">
+    <Type Name="Regions_vw">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.case_line_vw" Member="case_line_vws">
+    <Type Name="case_line_vw">
+      <Column Name="service_no" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="account_no" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="case_id" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="case_gsm_id" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="case_fraudType_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_user_id" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_line_billing_user" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="gsm_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="fraudType_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="case_line_note_intractive" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="case_line_descreption" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="case_line_connection_domain" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="case_line_activate_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="case_line_hijri" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="case_line_date" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Expr1" Type="System.String" DbType="NChar(100)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

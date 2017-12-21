@@ -1,0 +1,326 @@
+﻿@{
+    Layout = "~/Views/_Layout.cshtml";
+    @inherits System.Web.Mvc.WebViewPage
+}
+
+<script src="~/Components/Edit/EditController.js"></script>
+
+<style>
+    .form-control {
+        width: 150px !important;
+        margin-left: 20px !important;
+    }
+
+    .gridformcontrol {
+        width: 120px !important;
+    }
+
+    .filter-col {
+        width: 105px !important;
+    }
+
+    th {
+        text-align: right !important;
+    }
+
+    .text-area {
+        width: 100% !important;
+    }
+
+    .form-group {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+</style>
+<!--------------------------------------Edit panel---------------------------------------------------->
+<div class="container" dir="rtl" data-ng-controller="EditController" style="display: none;" id="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body form-horizontal payment-form">
+                <div class="row">
+                    @*<div class="col-md-2 form-group">
+                        <label>المستخدم المخالف:</label>
+                        <input required type="text" class="form-control input-sm" ng-model="ui.case.case_billing_user2">
+                    </div>*@
+                    <div class="col-md-2 form-group">
+                        <label>اسم المشترك:</label>
+                        <input required type="text" class="form-control input-sm" ng-model="ui.case.case_customer_name">
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>رقم المشترك:</label>
+                        <input required type="text" class="form-control" ng-model="ui.case.case_customer_number">
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>رقم الهوية:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_ID_number" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>الجنسية:</label>
+                        <select id="Select5" class="form-control" ng-model="ui.case.case_nationality_id">
+                            <option ng-repeat="item in ui.nationalities" value="{{item.nationality_id}}" ng-selected="MatchSelection(item.nationality_id, ui.case.case_nationality_id);">{{item.nationality_name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>المنطقة:</label>
+                        <select class="form-control" ng-model="ui.case.case_region">
+                            <option ng-repeat="item in ui.regions" value="{{item.ID}}" ng-selected="MatchSelection(item.ID, ui.case.case_region);">{{item.Name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>المدينة:</label>
+                        @*<select class="form-control" ng-model="ui.case.case_city">
+                            <option ng-repeat="item in ui.cities" value="{{item.ID}}" ng-selected="MatchSelection(item.ID, ui.case.case_city);">{{item.Name}}</option>
+                        </select>*@
+                        <input type="text" class="form-control input-sm" ng-model="ui.case.case_city">
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-2 form-group">
+                        <label>تاريخ التأسيس:</label>
+                        <div id="sandbox-container">
+                            <input required class="form-control" type="text" id="case_Activate_date" ng-model="ui.case.case_Activate_date" />
+                        </div>
+                    </div>
+                    @*<div class="col-md-2 form-group">
+                        <label>نوع الخدمة:</label>
+                        <select class="form-control" ng-model="ui.case.case_connection_domain">
+                            <option ng-repeat="item in ui.connection_domains" value="{{item.ID}}" ng-selected="MatchSelection(item.ID, ui.case.case_connection_domain);">{{item.Name}}</option>
+                        </select>
+                    </div>*@
+                    <div class="col-md-2 form-group">
+                        <label>حالة الإختلاس:</label>
+                        <select id="Select3" class="form-control" ng-model="ui.case.case_fraudStatus_id">
+                            <option ng-repeat="item in ui.fraudStatus" value="{{item.fraudStatus_id}}" ng-selected="MatchSelection(item.fraudStatus_id, ui.case.case_fraudStatus_id);">{{item.fraudStatus_name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>دورة الفوتورة:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_bill_cycle" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>تاريخ الفوترة:</label>
+                        <div id="sandbox-container">
+                            <input required class="form-control" type="text" id="case_bill_date" ng-model="ui.case.case_bill_date" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>الفوترة هجري:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_bill_hdate" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>النظام المصدر:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_source" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    
+                    
+                    <div class="col-md-2 form-group">
+                        <label>التاريخ الميلادي:</label>
+                        <div id="sandbox-container">
+                            <input required class="form-control" type="text" id="case_date" ng-model="ui.case.case_date" />
+                        </div>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>التاريخ الهجري:</label>
+                        <input required class="form-control" id="case_hijri" type="text" ng-model="ui.case.case_hijri" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>الحالة:</label>
+                        <select class="form-control" ng-model="ui.case.case_status">
+                            <option ng-repeat="item in ui.caseStatus" value="{{item.caseStatus_id}}" ng-selected="MatchSelection(item.caseStatus_id, ui.case.case_status);">{{item.caseStatus_name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>عدد الأرقام المفصولة:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_disconnected_numbers_count" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>الحد الإئتماني:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_credit_limit" />
+                    </div>
+                    <div class="col-md-2 form-group">
+                        <label>الفقد المتوقع:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_estimated_loss" />
+                    </div>
+                </div>
+
+                <div class="row">
+                                      
+                    <div class="col-md-2 form-group" style="float:right">
+                        <label>المبلغ المفقود:</label>
+                        <input required class="form-control" type="text" ng-model="ui.case.case_actual_loss" />
+                    </div>
+                </div>
+
+
+
+                @*<div class="col-md-2" style="float: right">
+                                <label>التاريخ الميلادي:</label>
+                                <div id="sandbox-container">
+                                    <input required class="form-control" type="text" id="case_line_date" ng-model="ui.caselines[$index].case_line_date" />
+                                </div>
+                            </div>*@
+                <div class="panel panel-default" ng-repeat="record in ui.caselines">
+                    <div class="panel-body form-horizontal payment-form">
+                        <h4><span class="label label-default">{{$index + 1}}</span></h4>
+                        <div class="row">
+
+                            <div class="col-md-2" style="float: right">
+                                <label>رقم الخدمة</label>
+                                <input required type="text" value="{{record.service_no}}" class="form-control modalformcontrol" ng-model="ui.caselines[$index].service_no" />
+                            </div>
+
+                            <div class="col-md-2" style="float: right">
+                                <label>رقم الحساب</label>
+                                <input required type="text" value="{{record.account_no}}" class="form-control modalformcontrol" ng-model="ui.caselines[$index].account_no" />
+                            </div>
+
+                            <div class="col-md-2" style="float: right">
+                                <label>المبلغ</label>
+                                <input required type="text" value="{{record.amount}}" class="form-control modalformcontrol" ng-model="ui.caselines[$index].amount" />
+                            </div>
+
+                            
+
+                            <div class="col-md-2" style="float: right">
+                                <label>نوع الإختلاس</label>
+                                <select id="Select6" class="form-control modalformcontrol" ng-model="ui.caselines[$index].case_gsm_id">
+                                    <option ng-repeat="item in ui.GSMTypes" value="{{item.gsm_id}}" ng-selected="MatchSelection(item.gsm_id,ui.caselines[$parent.$index].case_gsm_id);">{{item.gsm_name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2" style="float: right">
+                                <label>مدخل البيانات</label>
+                                <select id="Select6" class="form-control modalformcontrol" ng-model="ui.caselines[$index].case_fraudType_id">
+                                    <option ng-repeat="item in ui.fraudTypes" value="{{item.fraudType_id}}" ng-selected="MatchSelection(item.fraudType_id,ui.caselines[$parent.$index].case_fraudType_id);">{{item.fraudType_name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2" style="float:right">
+                                <label>المستخدم المخالف</label>
+                                <div>
+                                    <input required class="form-control modalformcontrol" type="text" id="case_line_billing_user" ng-model="ui.caselines[$index].case_line_billing_user" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-2" style="float: right">
+                                <label>نوع الخدمة:</label>
+                                <select class="form-control modalformcontrol" ng-model="ui.caselines[$index].case_line_connection_domain">
+                                    <option ng-repeat="item in ui.connection_domains" value="{{item.ID}}" ng-selected="MatchSelection(item.ID, ui.case.case_connection_domain);">{{item.Name}}</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-2" style="float: right">
+                                <label>التاريخ الميلادي:</label>
+                                <div id="sandbox-container">
+                                     @*ng-change="ui.caselines[$index].case_line_hijri=moment(ui.caselines[$index].case_line_date, 'D/M/YYYY')"/*@
+                                    <input required class="form-control" type="text" id="{{'case_line_date'+ $index}}" ng-model="ui.caselines[$index].case_line_date">
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="float: right">
+                                <label>التاريخ الهجري:</label>
+                                <input required class="form-control modalformcontrol case_line_hijri" type="text" id="{{'case_line_hijri' + $index}}" ng-model="ui.caselines[$index].case_line_hijri" />
+                            </div>
+
+
+                            @*<div class="col-md-2" style="float:right">
+                                <label>يوزر المقفل</label>
+                                <input required class="form-control gridformcontrol" type="text" value="{{record.case_billing_user}}" ng-model="ui.caselines[$index].case_billing_user" />
+                            </div>*@
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" style="float: right">
+                                <label>ملاحظة:</label>
+                                <textarea class="form-control text-area" ng-model="ui.caselines[$index].case_line_note_intractive" rows="3"></textarea>
+                            </div>
+                            <div class="col-md-6 " style="float: right">
+                                <label>وصف القضية:</label>
+                                <textarea class="form-control text-area" ng-model="ui.caselines[$index].case_line_descreption" rows="3"></textarea>
+                            </div>
+
+                        </div>
+                        <div style="float: left; margin-top: 10px">
+                            <button class="btn btn-danger btn-xs" ng-click="deleteRow($index);" style="margin-right: -20px !important">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <button type="button" ng-click="addRow();" class="btn btn-primary btn-lg pull-left" style="float: right !important;"><span class="glyphicon glyphicon-plus" style="float: right"></span>اضافة </button>
+                @*<div class="row">
+                    <div class="col-md-12 form-group">
+                        <table class="table" id="dtable" style="width: 97%;">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رقم الخدمة</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رقم الحساب</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;المبلغ</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خدمة الجوال</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نوع الإختلاس</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مدخل البيانات</th>
+                                    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;يوزر المقفل</th>
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="record in ui.caselines">
+                                    <td>
+                                        <label>{{$index + 1}}</label></td>
+                                    <td>
+                                        <input required type="text" value="{{record.service_no}}" class="form-control gridformcontrol" ng-model="ui.caselines[$index].service_no" /></td>
+                                    <td>
+                                        <input required type="text" value="{{record.account_no}}" class="form-control gridformcontrol" ng-model="ui.caselines[$index].account_no" /></td>
+                                    <td>
+                                        <input required type="text" value="{{record.amount}}" class="form-control gridformcontrol" ng-model="ui.caselines[$index].amount" /></td>
+                                    <td>
+                                        <input type="text" value="{{record.connection_domain}}" class="form-control gridformcontrol" ng-model="ui.caselines[$index].connection_domain" /></td>
+                                    <td>
+                                        <select id="Select6" class="form-control gridformcontrol" ng-model="ui.caselines[$index].case_gsm_id">
+                                            <option ng-repeat="item in ui.GSMTypes" value="{{item.gsm_id}}" ng-selected="MatchSelection(item.gsm_id,ui.caselines[$parent.$index].case_gsm_id);">{{item.gsm_name}}</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="Select6" class="form-control gridformcontrol" ng-model="ui.caselines[$index].case_fraudType_id">
+                                            <option ng-repeat="item in ui.fraudTypes" value="{{item.fraudType_id}}" ng-selected="MatchSelection(item.fraudType_id,ui.caselines[$parent.$index].case_fraudType_id);">{{item.fraudType_name}}</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select id="Select6" class="form-control gridformcontrol" ng-model="ui.caselines[$index].case_user_id">
+                                            <option ng-repeat="item in ui.users" value="{{item.user_id}}" ng-selected="MatchSelection(item.user_id,ui.caselines[$parent.$index].case_user_id);">{{item.user_name}}</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input required class="form-control gridformcontrol" type="text" value="{{record.case_billing_user}}" ng-model="ui.caselines[$index].case_billing_user" /></td>
+                                    <td>
+                                        <button class="btn btn-danger btn-xs" ng-click="deleteRow($index);" style="margin-right: -20px !important">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </button>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="button" ng-click="addRow();" class="btn btn-primary btn-lg pull-left" style="float: right !important;"><span class="glyphicon glyphicon-plus" style="float: right"></span>اضافة </button>
+                    </div>
+                </div>*@
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <button type="submit" ng-click="Update();" class="btn btn-primary btn-lg pull-left" style="margin-right: 5px;"><span class="glyphicon glyphicon-ok-sign" style="margin-left: 3px;"></span>تعديل</button>
+                <button type="submit" ng-click="Delete();" class="btn btn-danger btn-lg pull-left"><span class="glyphicon glyphicon-remove-sign" style="margin-left: 3px;"></span>حذف</button>
+            </div>
+        </div>
+    </div>
+    <!--------------------------------------end of search panel-------------------------------------------------->
+</div>

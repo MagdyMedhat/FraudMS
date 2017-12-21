@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15, 19" name="RAFMS">
+  <DataContextMoniker Name="/RAFMSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d05a0093-09a5-44b8-8921-bd80a1ba20d4" absoluteBounds="0.75, 0.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/RAFMSDataContext/Access" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a33fcd6-dffb-4cc1-b4ed-60b71e3a2f5e" absoluteBounds="0.765, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b714ab5a-c2a0-4d49-b89c-364f79dcdfb0" absoluteBounds="3.75, 3.75, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/RAFMSDataContext/Case" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a8528051-c523-4bfd-a993-f904c73cdada" absoluteBounds="3.765, 4.21, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82e8c9ef-c1c6-4706-8117-3c5c5cbb93b9" absoluteBounds="6.75, 0.75, 2, 3.6939111328124996">
+      <DataClassMoniker Name="/RAFMSDataContext/case_line" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c27f5c5c-d69b-4a8d-a6c4-62d7a0619d68" absoluteBounds="6.765, 1.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="433a4c07-d41b-4426-a048-d9b95c6ee37f" absoluteBounds="6.75, 5.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/CaseStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0351159a-3634-492b-816b-259c969a20fd" absoluteBounds="6.765, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2aa7c425-b425-4886-9e3c-0e91b22f854d" absoluteBounds="6.75, 7.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/City" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa32c919-2d94-48ef-87ab-928459d94ed4" absoluteBounds="6.765, 8.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3120c48a-315d-4e65-82d8-719ffe895cf6" absoluteBounds="9.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RAFMSDataContext/ConnectionDomain" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6a97a5cb-6419-4070-959c-bd923a4fe132" absoluteBounds="9.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dd788d2f-eed2-4871-b83b-9a2fce4bf613" absoluteBounds="0.75, 9.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/RAFMSDataContext/FraudStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7edd8452-60b2-4063-8fdc-bc5f40222269" absoluteBounds="0.765, 10.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9dc037b6-8dee-4447-9920-c69387440046" absoluteBounds="9.75, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/RAFMSDataContext/FraudType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f97d2338-2602-45b0-a617-c085fe52382b" absoluteBounds="9.765, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="130a333e-b641-43ae-a5d7-465a81bfc804" absoluteBounds="3.75, 9.75, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/RAFMSDataContext/GSM_type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e743785-f323-4564-b8f7-2419402b976b" absoluteBounds="3.765, 10.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ec3821ab-6ed9-4cfc-908a-ff8f1d9ae396" absoluteBounds="9.75, 5.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/RAFMSDataContext/Nationality" />
+      <nestedChildShapes>
+        <elementListCompartment Id="daa2c7b2-fbc1-4b2f-8ab6-23783222ca66" absoluteBounds="9.765, 6.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="59f2256e-9030-4e49-b7af-2d1db23cc987" absoluteBounds="6.75, 9.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/Region" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dbdc5dd1-f641-46ce-b1c0-b2615f2a0c6b" absoluteBounds="6.765, 10.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b1033f64-89e5-4d60-8cf1-41b48582737d" absoluteBounds="0.75, 5.125, 2, 2.9247054036458326">
+      <DataClassMoniker Name="/RAFMSDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="88302d4b-31c9-46f9-91d9-c9a9005c6219" absoluteBounds="0.765, 5.585, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="328e8306-77df-4b98-aa8b-44f8a06caae7" absoluteBounds="3.5, 0.875, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RAFMSDataContext/UsersAccess" />
+      <nestedChildShapes>
+        <elementListCompartment Id="359795d5-980e-4aa8-8fc7-3a0f6346b4f0" absoluteBounds="3.515, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.47199625651042); (3.5 : 1.47199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RAFMSDataContext/Access/Access_UsersAccess" />
+      <nodes>
+        <classShapeMoniker Id="d05a0093-09a5-44b8-8921-bd80a1ba20d4" />
+        <classShapeMoniker Id="328e8306-77df-4b98-aa8b-44f8a06caae7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.12653746153846); (3.125 : 4.75153746153846); (3.125 : 1.80174638476563); (3.5 : 1.80174638476563)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RAFMSDataContext/User/User_UsersAccess" />
+      <nodes>
+        <classShapeMoniker Id="b1033f64-89e5-4d60-8cf1-41b48582737d" />
+        <classShapeMoniker Id="328e8306-77df-4b98-aa8b-44f8a06caae7" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b2b5ea5c-cc2a-48ba-9f60-32d1d656fd7c" absoluteBounds="12.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RAFMSDataContext/Users_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7dd74ac-ee14-4d62-8db6-5ebe50ea4c58" absoluteBounds="12.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8e655584-440a-4832-8a0f-0187f707b88f" absoluteBounds="0.75, 12.75, 2, 6.0015283203124987">
+      <DataClassMoniker Name="/RAFMSDataContext/Case_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="46664744-fefe-4f70-8cd8-3e18a3879a71" absoluteBounds="0.765, 13.21, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c3e36d82-25a8-4822-8f95-25d14355d7ba" absoluteBounds="12.75, 2.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/RAFMSDataContext/CaseStatus_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3f35f793-ec35-4678-bef1-61e39bfb0ca1" absoluteBounds="12.765, 3.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="13848a4f-97f6-4f7a-b438-f9efcbfd677d" absoluteBounds="3.75, 12.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/Cities_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8173f886-27f1-4651-a226-6ab920cf63ba" absoluteBounds="3.765, 13.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e40755c-3520-4fdc-b20d-06e5019bc2df" absoluteBounds="12.75, 4.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/ConnectionDomains_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="97264425-13c1-4b81-81ac-abf534d22385" absoluteBounds="12.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="91af972b-838b-42e9-9be0-4d6a4b87da4c" absoluteBounds="12.75, 6.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/FraudStatus_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f59bc38-7004-4f4c-95c4-4216441283aa" absoluteBounds="12.765, 7.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8cfe4a3d-cdef-45e7-bf69-322324c05834" absoluteBounds="12.75, 8.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/FraudTypes_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="519f74df-1805-4dcc-aaa9-04bae10b1112" absoluteBounds="12.765, 9.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f741316c-e576-4905-b0e7-e0b7e144f11e" absoluteBounds="12.75, 10.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/GSM_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92997fee-b9af-4a67-b95e-a010b72496be" absoluteBounds="12.765, 11.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5bfe700f-1b7d-4d51-bbad-530787e7e16f" absoluteBounds="12.75, 12.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/Nationality_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d47174f-4b30-4799-8973-8a1d7d60481a" absoluteBounds="12.765, 13.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="50a68269-50b8-4c67-b477-753242432433" absoluteBounds="3.75, 14.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/RAFMSDataContext/Regions_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="498e15e9-4c1b-46af-bc9b-2e4b76ada964" absoluteBounds="3.765, 15.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38d1568d-cd9b-4363-b953-819b5d894ccc" absoluteBounds="9.75, 8.5, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/RAFMSDataContext/case_line_vw" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ad9933b-e3ad-49f7-a897-722a31a7efeb" absoluteBounds="9.765, 8.96, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
